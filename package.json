@@ -39,6 +39,5 @@
     "sass-loader": "^6.0.6",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.5"
-  },
-  "devDependencies": {}
+  }
 }
