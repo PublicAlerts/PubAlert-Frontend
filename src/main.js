@@ -4,7 +4,6 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import {say} from 'cowsay';
 import faker from 'faker';
 import './style/main.scss';
 
@@ -26,10 +25,10 @@ class App extends React.Component {
         content: 'click the button!',
       }
 
-    this.updateCow = this.updateCow.bind(this);
+    this.update = this.update.bind(this);
   };
 
-  updateCow () {
+  update () {
     this.setState({content: faker.lorem.words(3)});
   };
 
@@ -37,7 +36,7 @@ class App extends React.Component {
     return (
       <div id='moomoo'>
         <Header />
-        <button onClick={this.updateCow}> click me </button>
+        <button onClick={this.update}> click me </button>
         <pre>{say({text: this.state.content})}</pre>
       </div>
     )
