@@ -12,7 +12,7 @@ import './style/main.scss';
 class Header extends React.Component {
   render() {
     return (
-      <h1> Generate Cowsay Lorem </h1>
+      <h1>Hello World </h1>
     )
   }
 }
@@ -34,7 +34,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id='moomoo'>
+      <div id='hello'>
         <Header />
         <button onClick={this.update}> click me </button>
         <pre>{say({text: this.state.content})}</pre>
