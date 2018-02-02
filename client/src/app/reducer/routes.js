@@ -12,7 +12,7 @@ export default (state=defaultRoute, {type, payload}) => {
           return '/login';
 
         case "LOGIN" :
-          return '/chat';
+          return '/text';
 
 
         default:

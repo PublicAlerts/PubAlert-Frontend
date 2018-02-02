@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 import Header from './header'
 import Footer from './footer'
 import Navbar from './navbar'
-import Chat from './chat'
+import Text from './text'
 import Login from './login'
 import Profile from './profile'
 
@@ -37,7 +37,7 @@ class App extends React.Component {
                   <Switch location={{pathname:this.props.route}}>
                       <Route exact path='/login' component={Login}/>
                       <Route exact path='/profile' component={Profile}/>
-                      <Route exact path='/chat' component={Chat}/>
+                      <Route exact path='/text' component={Text}/>
                   </Switch>
                 </main>
 
