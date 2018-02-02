@@ -14,7 +14,7 @@ const ExtractPlugin = require('extract-text-webpack-plugin');
 
 const {EnvironmentPlugin, DefinePlugin} = require('webpack');
 
-let production = process.env.NODE_ENV === "production";
+let production = process.env.NODE_ENV === 'production';
 let plugins = [
   new HTMLPlugin({
     template: `${__dirname}/src/index.html`
@@ -62,6 +62,6 @@ module.exports = {
         test: /\.scss$/,
         loader : 'style-loader!css-loader!sass-loader'
       },
-    ]
-  }
-}
+    ],
+  },
+};
