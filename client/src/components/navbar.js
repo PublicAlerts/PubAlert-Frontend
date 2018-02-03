@@ -8,11 +8,11 @@ class Navbar extends React.Component {
     constructor(props) {
         super(props)
 
-    this.startText = this.startText.bind(this);
+    this.startChat = this.startChat.bind(this);
     }
 
-    startText() {
-      this.props.switchRoute('/text');
+    startChat() {
+      this.props.switchRoute('/chat');
     }
 
 
@@ -22,7 +22,7 @@ class Navbar extends React.Component {
             <nav>
                 {renderIf(this.props.auth,
                     <ul>
-                    <li onClick={this.startText}>Text</li>
+                    <li onClick={this.startChat}>Chat</li>
                     <li onClick={ () => this.props.switchRoute('/profile') }>Profile</li>
                     <li onClick={this.props.logout}>Logout</li>
                     </ul>

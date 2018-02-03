@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 import Header from './header'
 import Footer from './footer'
 import Navbar from './navbar'
-import Text from './text'
+import Chat from './chat'
 import Login from './login'
 import Profile from './profile'
 
@@ -29,20 +29,22 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Header appTitle="text here"/>
 
+                <Header appTitle="Chat App" />
+
+                { /* TODO: Probably should send the routing actions and the route state so you can show/hide links in the menu */ }
                 <Navbar auth={this.props.auth} switchRoute={this.props.switchRoute} logout={this.props.logout}/>
 
                 <main>
                   <Switch location={{pathname:this.props.route}}>
                       <Route exact path='/login' component={Login}/>
                       <Route exact path='/profile' component={Profile}/>
-                      <Route exact path='/text' component={Text}/>
+                      <Route exact path='/chat' component={Chat}/>
                   </Switch>
                 </main>
 
                 <Footer>
-                    <p>&copy;Code Fellows 2018 401n4</p>
+                    <p>&Code Fellows 401 2018</p>
                 </Footer>
 
             </React.Fragment>
@@ -51,8 +53,7 @@ class App extends React.Component {
 }
 
 
-
-// Map state, dispatch, and connect the App
+// TODO: Map state, dispatch, and connect the App
 const mapStateToProps = (state) => ({
     auth: state.auth,
     profile: state.profile,
@@ -65,6 +66,7 @@ const mapDispatchToProps = (dispatch, getState) => ({
     switchRoute: (route) => dispatch(routeActions.switchRoute(route)),
     logout: () => dispatch(authActions.logout()),
 })
+
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
