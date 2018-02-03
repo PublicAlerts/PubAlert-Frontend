@@ -1,6 +1,5 @@
-// update -- PUT the updated user to the server (with bearer) and dispatch an action to update state
 import superagent from 'superagent';
-import cookie from 'react-cookies';
+import cookie from 'react-cookie';
 
 
 
@@ -25,3 +24,7 @@ const updateAction = (user) => ({
   type: "UPDATE_PROFILE",
   payload: user
 });
+
+
+
+// update -- PUT the updated user to the server (with bearer) and dispatch an action to update state

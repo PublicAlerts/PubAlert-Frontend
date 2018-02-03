@@ -1,5 +1,5 @@
 import superagent from 'superagent';
-import cookie from 'react-cookies';
+import cookie from 'react-cookie';
 
 
 
