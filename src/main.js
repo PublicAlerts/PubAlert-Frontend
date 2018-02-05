@@ -3,23 +3,31 @@ import './style/main.scss';
 import React from 'react';
 import ReactDom from 'react-dom'
 import superagent from 'superagent';
-// import {MemoryRouter} from 'react-router-dom'
-// import {Provider} from 'react-redux'
 
 import './style/main.scss';
 
-// const store = createStore();
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      alerts: [
+        {"userid":"Max", "eventName":"concert", "eventInfo":"very nice event", "eventLocation":"Tukwila"},
+        {"userid":"Michael", "eventName":"natural disaster", "eventInfo":"catastrophe", "eventLocation":"HERE"}
+      ]
+    }
+  }
     render() {
         return (
-          'hi'
-            // <Provider store={store}>
-            //     <MemoryRouter>
-                    // <App/>
-            //     </MemoryRouter>
-            // </Provider>
+          <div>
+            <h1>Alerts</h1>
+            <ul>
+              {this.state.alerts.map(alert =>
+                <li>{alert.eventInfo}</li>
+              )}
+            </ul>
+          </div>
         )
     }
 }
