@@ -8,7 +8,7 @@ import express from 'express'
 import * as mongo from './mongo.js'
 
 import authRouter from '../router/auth.js'
-import fourOhFour from '../middleware/four-oh-four.js'
+import fourOhFour from '../middleware/error.js'
 import errorHandler from '../middleware/error-middleware.js'
 
 
