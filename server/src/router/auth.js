@@ -9,8 +9,8 @@ import basicAuth from '../middleware/basic-auth.js';
 import superagent from 'superagent';
 
 
-let URL = process.env.CLIENT_URL;
 
+let URL = process.env.CLIENT_URL;
 
 export default new Router()
 
@@ -97,4 +97,4 @@ export default new Router()
     console.log('ERROR from Token Create: ', err.message);
     res.redirect(process.env.CLIENT_URL);
   })
-})
+});

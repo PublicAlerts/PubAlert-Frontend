@@ -6,8 +6,9 @@ import cors from 'cors'
 import morgan from 'morgan'
 import express from 'express'
 import * as mongo from './mongo.js'
+
 import authRouter from '../router/auth.js'
-import fourOhFour from '../middleware/error.js'
+import fourOhFour from '../middleware/four-oh-four.js'
 import errorHandler from '../middleware/error-middleware.js'
 
 
@@ -22,10 +23,8 @@ app.use(cors({
   credentials: true,
 }))
 
-
 // routers
 app.use(authRouter)
-
 
 // handle errors
 app.use(fourOhFour)
@@ -70,4 +69,4 @@ export const stop = () => {
     })
     .catch(reject)
   })
-};
+}

@@ -1,7 +1,4 @@
-
-
 export default (fn) => (...args) => {
-
   return new Promise((resolve, reject) => {
     fn(...args, (err, data) => {
       if(err)
@@ -9,4 +6,4 @@ export default (fn) => (...args) => {
       resolve(data)
     })
   })
-};
+}

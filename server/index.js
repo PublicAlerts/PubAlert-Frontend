@@ -1,6 +1,6 @@
 'use strict'
 
-
+require('babel-register')
 // load env
 require('dotenv').config()
 // assert env

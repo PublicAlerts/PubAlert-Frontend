@@ -1,7 +1,6 @@
 'use strict';
 
 
-
 // DEPENDECIES
 import * as bcrypt from 'bcrypt';
 import {randomBytes} from 'crypto';
@@ -31,7 +30,9 @@ userSchema.methods.passwordCompare = function(password){
   });
 };
 
+
 userSchema.methods.tokenCreate = function(){
+
   this.tokenSeed = randomBytes(32).toString('base64');
 
   return this.save()
@@ -50,6 +51,7 @@ const User = Mongoose.model('user', userSchema);
 
 // STATIC METHODS
 User.createFromSignup = function (user) {
+
   if(!user.password || !user.email || !user.username) {
     return Promise.reject( createError(400, 'VALIDATION ERROR: missing username email or password ') );
   }
