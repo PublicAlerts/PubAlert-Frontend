@@ -12,12 +12,28 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      alerts: [
-        {"userid":"Max", "eventName":"concert", "eventInfo":"very nice event", "eventLocation":"Tukwila"},
-        {"userid":"Michael", "eventName":"natural disaster", "eventInfo":"catastrophe", "eventLocation":"HERE"}
-      ]
+      alerts: []
     }
   }
+
+
+  componentDidMount() {
+    // get
+    superagent.get('http://localhost:3000/api/alerts')
+    .then(res => {
+      this.setState({
+        alerts: res.body
+      })
+    })
+    .catch(function(err){
+      console.log(err);
+    })
+
+    // stick returned dara into state
+
+  }
+
+
     render() {
         return (
           <div>
