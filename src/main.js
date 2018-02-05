@@ -3,6 +3,7 @@ import './style/main.scss';
 import React from 'react';
 import ReactDom from 'react-dom'
 import superagent from 'superagent';
+import moment from 'moment'; //for time format on alerts
 
 import './style/main.scss';
 
@@ -40,7 +41,7 @@ class Main extends React.Component {
             <h1>Alerts</h1>
             <ul>
               {this.state.alerts.map(alert =>
-                <li>{alert.eventInfo}</li>
+                <li key={alert._id}>{alert.eventInfo}, {alert.eventName}, {alert.eventLocation}. Event was reported by {alert.userid} on {moment(alert.entryDate).fromNow()}.</li>
               )}
             </ul>
           </div>
