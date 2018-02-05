@@ -32,7 +32,11 @@ module: {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        query:
+      {
+        presets:['react']
+      }
       },
       // If it's a .scss file
       {
