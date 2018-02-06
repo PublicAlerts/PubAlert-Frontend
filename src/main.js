@@ -21,12 +21,11 @@ class Main extends React.Component {
 
   componentDidMount() {
     // GET
-    superagent.get('http://localhost:3000/api/alerts') /* put heroku backend here when working */
-    .then(res => {
+    superagent.get('https://pass-backend.herokuapp.com/api/alerts')
+    .then(res =>
       this.setState({
         alerts: res.body
-      })
-    })
+      }))
     .catch(function(err){
       console.log(err);
     })

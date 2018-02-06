@@ -12,6 +12,7 @@
     "css-loader": "^0.28.8",
     "dotenv": "^4.0.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
     "moment": "^2.20.1",
@@ -35,7 +36,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack-dev-server --inline --hot"
+    "watch": "webpack-dev-server --inline --hot",
+    "start": "node index.js",
+    "build": "webpack",
+    "heroku-postbuild": "webpack"
   },
   "repository": {
     "type": "git",
