@@ -1,2 +1,1 @@
-# PubAlert-Frontend
-Front End for Public Alerts
+cleaning up the front-end branch.
