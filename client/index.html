@@ -1,6 +1,27 @@
 <html>
 	<body>
+		<script>
+
 		<h1>Oauth</h1>
-		<a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=354202411313-jq48e4iembl3icfecbpicukgseks4c0p.apps.googleusercontent.com">Login with Google</a>
-	</body>
+	/*	<a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=354202411313-jq48e4iembl3icfecbpicukgseks4c0p.apps.googleusercontent.com">Login with Google</a> */
+	<script>
+let authURL = "https://accounts.google.com/o/oauth2/v2/auth";
+
+let options = {
+	client_id: '354202411313-jq48e4iembl3icfecbpicukgseks4c0p.apps.googleusercontent.com',
+	redirect_uri: 'https://localhost:8080/oauth/google/code',
+	scope: 'email openid profile',
+	prompt: 'consent',
+	response_type: 'code'
+}
+
+Object.keys(options).map( (key,i) => {
+	return `${key}=` + encodeURIComponent(options[key]);
+}).join("&");
+
+console.log(QueryString);
+
+</script>
+Hello World
+</body>
 </html>
