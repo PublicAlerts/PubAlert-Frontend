@@ -3,8 +3,7 @@ import './style/main.scss';
 import React from 'react';
 import ReactDom from 'react-dom'
 import superagent from 'superagent';
-import moment from 'moment'; //for time format on alerts
-
+import moment from 'moment'; //display time format on alerts
 import './style/main.scss';
 
 
@@ -29,9 +28,7 @@ class Main extends React.Component {
     .catch(function(err){
       console.log(err);
     })
-
-    // stick returned dara into state
-
+    // stick returned data into state
   }
 
 
