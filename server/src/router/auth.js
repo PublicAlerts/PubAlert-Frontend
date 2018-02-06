@@ -53,48 +53,26 @@ export default new Router()
 
 .get('/oauth/google/code', (req, res, next) => {
 
-  let code = req.query.code;
-  console.log('code is ', code);
+let code = req.query.code;
+
+  console.log('(1) code', code);
 
   superagent.post('https://www.googleapis.com/oauth2/v4/token')
-  .type('form')
-  .send({
-    code: code,
-    client_id: process.env.GOOGLE_CLIENT_ID,
-    client_secret: process.env.GOOGLE_CLIENT_SECRET,
-    redirect_uri: `${process.env.API_URL}/oauth/google/code`,
-    grant_type: 'authorization_code'
-  })
-  .then(res => {
-    let token = res.body.access_token;
-    console.log('token is ', token);
-    return token;
-  })
-  .then (token => {
-    return superagent.get('https://www.googleapis.com/plus/v1/people/me/openIdConnect')
-    .set('Authorization', `Bearer ${token}`)
-    .then(res => {
-      let user = res.body;
-      console.log('user is ', user);
-      return user;
+    .send({
+
+      code: code,
+      client_id: process.env.GOOGLE_CLIENT_ID,
+      client_secret: process.env.GOOGLE_CLIENT_SECRET,
+      redirect_uri: `${process.env.API_URL}/oauth/google/code`,
+      grant_type: 'authorization_code'
+
     })
-  })
-  .then(gUser => {
-    let user = User.createFromOAuth(gUser);
-    console.log('from User.createFromOAuth is ', user);
-    return user;
-  })
-  .then(user => {
-    console.log('user on line 77 is ', user)
-    return user.tokenCreate();
-  })
-  .then(token => {
-    console.log('token is ', token)
-    res.cookie('X-BBB-Token', token);
-    res.redirect(process.env.CLIENT_URL);
-  })
-  .catch(err => {
-    console.log('ERROR from Token Create: ', err.message);
-    res.redirect(process.env.CLIENT_URL);
-  })
-});
+    .then( response => {
+      console.log('(2) token', response.body);
+      res.redirect(URL);
+    })
+    .catch( error => {
+      console.error(error);
+      res.redirect(URL);
+    });
+}}
