@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import superagent from 'superagent';
 
 class AlertsIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      location: 'downtown',
+      eventLocation: 'downtown',
       eventInfo: ''
     }
 
@@ -24,7 +25,7 @@ class AlertsIn extends React.Component {
 
   handleLocationChange(e){
     this.setState({
-      location: e.target.value
+      eventLocation: e.target.value
     })
   }
 
@@ -36,10 +37,20 @@ class AlertsIn extends React.Component {
 
   handleSubmit(e){
     //use superagent to POST data to server
-    console.log(this.state.name);
-    console.log(this.state.location);
-    console.log(this.state.eventInfo);
     e.preventDefault();
+    superagent.post('https://pass-backend.herokuapp.com/api/alerts')
+    .send({
+      userid: this.state.name,
+      eventInfo: this.state.eventInfo,
+      eventName: "eventNameJazz",
+      eventLocation: this.state.eventLocation,
+    })
+    .then(data => console.log(data))
+    .catch(err =>  console.log(err));
+
+    console.log(this.state.name);
+    console.log(this.state.eventLocation);
+    console.log(this.state.eventInfo);
     this.setState({
       name: ''
     })
@@ -56,7 +67,7 @@ class AlertsIn extends React.Component {
 
             <div>
               City:
-              <select value={this.state.location} onChange={this.handleLocationChange}>
+              <select value={this.state.eventLocation} onChange={this.handleLocationChange}>
                 <option value="west seattle">West Seattle</option>
                 <option value="renton">Renton</option>
                 <option value="tukwila">Tukwila</option>
