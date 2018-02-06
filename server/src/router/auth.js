@@ -65,14 +65,21 @@ let code = req.query.code;
       client_secret: process.env.GOOGLE_CLIENT_SECRET,
       redirect_uri: `${process.env.API_URL}/oauth/google/code`,
       grant_type: 'authorization_code'
-
     })
     .then( response => {
-      console.log('(2) token', response.body);
-      res.redirect(URL);
+      console.log('(2) token', googleToken);
+      return googleToken;
+    })
+    .then( token => {
+      superagent.get('https://www.googleapis.com/plus/v1/people/me/openidConnect')
+        .set('Authorization', `Bearer ${token}`)
+        .then( response => {
+          console.log('(3) Google User', response.body);
+          res.redirect(URL);
+        })
     })
     .catch( error => {
       console.error(error);
       res.redirect(URL);
     });
-}}
+});
