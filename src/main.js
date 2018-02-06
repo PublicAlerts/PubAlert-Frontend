@@ -50,5 +50,4 @@ class Main extends React.Component {
 }
 
 
-
 ReactDom.render(<Main/>, document.getElementById('root'));
