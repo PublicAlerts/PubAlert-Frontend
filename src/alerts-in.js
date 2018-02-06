@@ -5,12 +5,14 @@ class AlertsIn extends React.Component {
     super(props);
     this.state = {
       name: '',
-      location: 'downtown'
+      location: 'downtown',
+      eventInfo: ''
     }
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
+    this.handleEnterEventInfo = this.handleEnterEventInfo.bind(this);
   }
 
   handleNameChange(e){
@@ -26,10 +28,17 @@ class AlertsIn extends React.Component {
     })
   }
 
+  handleEnterEventInfo(e){
+    this.setState({
+      eventInfo: e.target.value
+    })
+  }
+
   handleSubmit(e){
     //use superagent to POST data to server
     console.log(this.state.name);
     console.log(this.state.location);
+    console.log(this.state.eventInfo);
     e.preventDefault();
     this.setState({
       name: ''
@@ -44,8 +53,8 @@ class AlertsIn extends React.Component {
 
             Name:
             <input type="text" name="name" placeholder= ' User Name' value={this.state.name} onChange={this.handleNameChange}/>
-            <div>
 
+            <div>
               City:
               <select value={this.state.location} onChange={this.handleLocationChange}>
                 <option value="west seattle">West Seattle</option>
@@ -56,7 +65,11 @@ class AlertsIn extends React.Component {
                 <option value="tacoma">Tacoma</option>
                 <option value="kent">Kent</option>
               </select>
+            </div>
 
+            <div>
+              Event Details:
+              <input type='text' info='info' placeholder= ' Event Description' value={this.state.eventInfo} onChange={this.handleEnterEventInfo}/>
             </div>
 
           <input type="submit" value="Submit" />
