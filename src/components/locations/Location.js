@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {connect} from 'react-redux';
 import {createLocation, updateLocation, deleteLocation} from './locationState/location-actions';
@@ -38,9 +37,11 @@ class Location extends React.Component {
   }
 }
 
+
   const mapStateToProps = (state) => ({
     locations: state.locations
   });
+
 
   const mapDispatchToProps = (dispatch,getState) => ({
     createLocation: location => dispatch(createLocation(location)),
