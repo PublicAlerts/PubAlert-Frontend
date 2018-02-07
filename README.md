@@ -1,3 +1,7 @@
+PASS (Public Alert Social System)
+
+To Start : 
+
 # npm i
 
 # npm run watch
