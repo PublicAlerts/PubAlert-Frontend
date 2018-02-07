@@ -11,21 +11,20 @@ import Alerts from './alerts/alert'
 class App extends React.Component {
 
   constructor(props) {
-   super(props);
+    super(props);
   }
 
   render() {
     return (
       <div>
         <Header appTitle="PASS" />
-        <main>
           <body>
             <Route exact path='/' component={Alerts} />
-            </body>
-        </main>
-        <Footer>
-          <p>Code Fellows 401</p>
-        </Footer>
+          </body>
+
+          <Footer>
+            <p>Code Fellows 401</p>
+          </Footer>
       </div>
     )
   }
