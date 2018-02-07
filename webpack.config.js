@@ -16,14 +16,14 @@ module.exports = {
   // Stick it into the "path" folder with that file name
   output: {
     filename: 'bundle.[hash].js',
-    path: `${__dirname}/build`
+    path: `${__dirname}/build`,
   },
 
   plugins: [
     new HTMLPlugin({
-      template: `${__dirname}/src/index.html`
+      template: `${__dirname}/src/index.html`,
     }),
-    new ExtractPlugin('bundle.[hash].css')
+    new ExtractPlugin('bundle.[hash].css'),
   ],
 
   module: {
@@ -35,8 +35,8 @@ module.exports = {
         loader: 'babel-loader',
         query:
         {
-          presets:['react']
-        }
+          presets:['react'],
+        },
       },
       // If it's a .scss file
       {
@@ -47,20 +47,20 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                sourceMap:true
-              }
+                sourceMap: true,
+              },
             },
             'resolve-url-loader',
             {
               loader: 'sass-loader',
               options: {
                 sourceMap: true,
-                includePaths:[`${__dirname}/src/style`]
-              }
-            }
-          ]
-        })
+                includePaths:[`${__dirname}/src/style`],
+              },
+            },
+          ],
+        }),
       },
-    ]
-  }
+    ],
+  },
 };
