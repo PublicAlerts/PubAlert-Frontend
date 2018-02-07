@@ -48,4 +48,6 @@ class Location extends React.Component {
     updateLocation: location => dispatch(updateLocation(location)),
   });
 
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(Location);

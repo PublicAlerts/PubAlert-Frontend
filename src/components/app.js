@@ -19,7 +19,9 @@ class App extends React.Component {
       <div>
         <Header appTitle="PASS" />
         <main>
-          <Route exact path='/' component={Alerts} />
+          <body>
+            <Route exact path='/' component={Alerts} />
+            </body>
         </main>
         <Footer>
           <p>Code Fellows 401</p>

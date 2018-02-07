@@ -1,31 +1,24 @@
-* {
-  border-color: black;
-}
-
-
 html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
   align-items: center;
+  align-content: center;
 }
 
 
 body {
   background: white;
   color: black;
-  align-items: center;
 }
 
 
 form {
   display: flex;
-  align-items: center;
 }
 
 
 input {
   border-radius: 3px;
   outline: none;
-  align-items: center;
 }
