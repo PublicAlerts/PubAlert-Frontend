@@ -19,17 +19,4 @@ export const deleteAlert = (alertId) => {
     type: "ALERT_DESTROY",
     payload: alertId
   }
-}
-
-
-
-
-
-/* to update -
-export const updateAlert = (alert) => {
-  return {
-    type: "ALERT_UPDATE",
-    payload: alert
-  }
-}
-*/
+};

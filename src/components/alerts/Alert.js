@@ -32,7 +32,6 @@ class Alerts extends React.Component {
 				<AlertList
 				 alerts={this.props.alerts}
 				 handleDelete={this.props.handleDeleteAlert}
-				 handleUpdate={this.props.handleUpdateAlert}
 				 handleAlerts={this.props.alerts} />
 			</div>
     )
@@ -45,8 +44,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, getState) => ({
 	handleAddAlert: alert => dispatch(createAlert(alert)),
-	handleUpdateAlert: alert => dispatch(updateAlert(alert)),
-	handleDeleteAlert: alert => dispatch(deleteAlert(alert))
+  handleDeleteAlert: alert => dispatch(deleteAlert(alert)),
+	handleUpdateAlert: alert => dispatch(updateAlert(alert))
 });
 
 
