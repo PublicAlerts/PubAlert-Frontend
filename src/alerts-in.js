@@ -83,11 +83,11 @@ class AlertsIn extends React.Component {
         <form onSubmit={this.handleSubmit}>
 
             Your Name:
-            <input type="text" name="name" placeholder = ' your name' value={this.state.name} onChange={this.handleNameInput}/>
+            <input type="text" name="name" placeholder = ' your name' required value={this.state.name} onChange={this.handleNameInput}/>
 
             <div>
               City:
-              <select value={this.state.eventLocation} onChange={this.handleLocationChange}>
+              <select  value={this.state.eventLocation} onChange={this.handleLocationChange}>
                 <option>West Seattle</option>
                 <option>Renton</option>
                 <option>Tukwila</option>
@@ -105,7 +105,7 @@ class AlertsIn extends React.Component {
 
             <div>
             Event Name:
-            <input type='text' name='name' placeholder = ' name of event' value={this.state.eventName} onChange={this.handleEnterEventName}/>
+            <input type='text' name='name' placeholder = ' name of event' required  value={this.state.eventName} onChange={this.handleEnterEventName}/>
             </div>
 
             <div>
@@ -125,7 +125,7 @@ class AlertsIn extends React.Component {
 
             <div>
               Event Details:
-              <input type='text' info='info' placeholder= ' event description' value={this.state.eventInfo} onChange={this.handleEnterEventInfo}/>
+              <input type='text' info='info' placeholder= ' event description' required  value={this.state.eventInfo} onChange={this.handleEnterEventInfo}/>
             </div>
 
 
