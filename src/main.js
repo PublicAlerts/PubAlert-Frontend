@@ -29,23 +29,7 @@ class Main extends React.Component {
     })
   }
 
-  // instructor example to hide item for user on click
-  // componentDidMount() {
-  //   superagent.get('https://pass-backend.herokuapp.com/api/alerts')
-  //   .then(res =>
-  //     let alerts = res.body;
-  //     // let hideThese = localStorage.get('hiddenAlerts');
-  //     // [id1, id2, id3]
-  //     // remove id1, 2, 3 from alerts & set that to filteredAlerts
-  //     this.setState({
-  //       alerts: filteredAlerts
-  //     }))
-  //   .catch(function(err){
-  //     console.log(err);
-  //   })
-  // }
-
-  //populating alerts, again, to show with newest one on the page
+  //populating alerts, GET again, to show with newest one on the page
   handlePostComplete(data) {
     console.log('in main', data);
     superagent.get('https://pass-backend.herokuapp.com/api/alerts')

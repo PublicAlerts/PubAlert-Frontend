@@ -6,10 +6,10 @@ class AlertsIn extends React.Component {
     super(props);
     this.state = {
       name: '',
-      eventLocation: 'downtown',
+      eventLocation: 'Downtown Seattle',
       eventInfo: '',
       eventName: '',
-      eventType: 'other'
+      eventType: 'Other'
     }
     this.handleNameInput = this.handleNameInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,7 +17,6 @@ class AlertsIn extends React.Component {
     this.handleEnterEventName = this.handleEnterEventName.bind(this);
     this.handleEnterEventInfo = this.handleEnterEventInfo.bind(this);
     this.handleEnterEventType = this.handleEnterEventType.bind(this);
-
   }
 
   handleNameInput(e){
@@ -60,6 +59,7 @@ class AlertsIn extends React.Component {
       eventName: this.state.eventName,
       eventInfo: this.state.eventInfo,
       eventLocation: this.state.eventLocation,
+      eventType: this.state.eventType
     })
     .then(data => {
       this.props.onPostComplete(data.body);
@@ -88,18 +88,18 @@ class AlertsIn extends React.Component {
             <div>
               City:
               <select value={this.state.eventLocation} onChange={this.handleLocationChange}>
-                <option value="west seattle">West Seattle</option>
-                <option value="renton">Renton</option>
-                <option value="tukwila">Tukwila</option>
-                <option value="federal way">Federal Way</option>
-                <option value="downtown">Downtown Seattle</option>
-                <option value="tacoma">Tacoma</option>
-                <option value="kent">Kent</option>
-                <option value="uw">U-District</option>
-                <option value="seatac">SeaTac</option>
-                <option value="edmonds">Edmonds</option>
-                <option value="everett">Everett</option>
-                <option value="issaquah">Issaquah</option>
+                <option>West Seattle</option>
+                <option>Renton</option>
+                <option>Tukwila</option>
+                <option>Federal Way</option>
+                <option>Downtown Seattle</option>
+                <option>Tacoma</option>
+                <option>Kent</option>
+                <option>U-District</option>
+                <option>SeaTac</option>
+                <option>Edmonds</option>
+                <option>Everett</option>
+                <option>Issaquah</option>
               </select>
             </div>
 
@@ -111,14 +111,15 @@ class AlertsIn extends React.Component {
             <div>
               Event Type:
               <select value={this.state.eventType} onChange={this.handleEnterEventType}>
-                <option value="amber">AMBER ALERT</option>
-                <option value="danger">DANGER</option>
-                <option value="traffic">Traffic</option>
-                <option value="social">Social Gathering</option>
-                <option value="food">Food</option>
-                <option value="show">Performance</option>
-                <option value="class">Classes</option>
-                <option value="other">Other</option>
+                <option>AMBER ALERT</option>
+                <option>DANGER</option>
+                <option>Traffic</option>
+                <option>Social Gathering</option>
+                <option>Food</option>
+                <option>Performance</option>
+                <option>Classes</option>
+                <option>Breaking News</option>
+                <option>Other</option>
               </select>
             </div>
 
