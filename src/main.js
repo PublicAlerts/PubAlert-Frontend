@@ -54,7 +54,6 @@ class Main extends React.Component {
   }
   
     .then(res =>
-
       this.setState({
         alerts: res.body
       }))
