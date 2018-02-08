@@ -16,15 +16,14 @@ class AlertsOut extends React.Component {
 
         return (
 
-          <li key={alert._id}> Event: {alert.eventName} <br/> Type: {alert.eventType} <br/>Info: {alert.eventInfo}. <br/> Location: {alert.eventLocation}. <br/>Reported by " {alert.userid} " {moment(alert.entryDate).fromNow()}. <p/>
-
+          <li key={alert._id}> Event: {alert.eventName} <br/> Type: {alert.eventType} <br/>Info: {alert.eventInfo}. <br/> Location: {alert.eventLocation}. <br/>Reported by " {alert.userid} " {moment(alert.entryDate).fromNow()}.
 
           <a
           id='deleteAlert'
           className={this.deleteButton}
           href="#"
           onClick={() => this.props.handleHide(alert)}
-          > remove </a>
+          > remove <p/></a>
           </li>
         )
 

@@ -51,8 +51,6 @@ class Main extends React.Component {
       console.log('res', filteredAlerts);
       this.setState({ filteredAlerts: res.body })
     })
-  }
-  
     .then(res =>
       this.setState({
         alerts: res.body
@@ -83,6 +81,15 @@ handleHide(alert){
 
   filteredAlerts.push(alert._id)
   localStorage.setItem('filteredAlerts', JSON.stringify(filteredAlerts))
+
+  let state = {
+    alerts: [alert._id]
+  }
+
+  const alerts = this.state.alerts.filter(v => {
+    return v._id !== alert._id
+  })
+  this.setState({alerts})
 }
 
   render() {
