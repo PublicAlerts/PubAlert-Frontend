@@ -20,7 +20,6 @@ class Main extends React.Component {
     // GET
     superagent.get('https://pass-backend.herokuapp.com/api/alerts')
     .then(res =>
-
       this.setState({
         alerts: res.body
       }))
