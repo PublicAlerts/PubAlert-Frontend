@@ -72,7 +72,11 @@ class AlertsIn extends React.Component {
     console.log(this.state.handleEnterEventType);
     console.log(this.state.eventName);
     this.setState({
-      name: ''
+      name: '',
+      eventName: '',
+      eventInfo: '',
+      eventLocation: 'Downtown Seattle',
+      eventType: 'Other'
     })
   }
 
