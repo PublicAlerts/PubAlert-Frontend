@@ -22,6 +22,7 @@ class Main extends React.Component {
   componentWillMount() {
     // GET
     superagent.get('https://pass-backend.herokuapp.com/api/alerts')
+<<<<<<< HEAD
     .then(res => {
         let alerts = res.body;
 
@@ -60,6 +61,19 @@ class Main extends React.Component {
 
 
   //populating alerts, again, to show with newest one on the page
+=======
+    .then(res =>
+
+      this.setState({
+        alerts: res.body
+      }))
+    .catch(function(err){
+      console.log(err);
+    })
+  }
+
+  //populating alerts, GET again, to show with newest one on the page
+>>>>>>> d63cebf63d3de0835038f9c7d2b88be2463e7f18
   handlePostComplete(data) {
     console.log('in main', data);
     superagent.get('https://pass-backend.herokuapp.com/api/alerts')
