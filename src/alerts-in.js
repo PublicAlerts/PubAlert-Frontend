@@ -132,7 +132,6 @@ class AlertsIn extends React.Component {
               <input type='text' info='info' placeholder= ' event description' required  value={this.state.eventInfo} onChange={this.handleEnterEventInfo}/>
             </div>
 
-
           <input type="submit" value="Submit" />
         </form>
       </div>
