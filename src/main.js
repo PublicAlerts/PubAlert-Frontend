@@ -22,10 +22,8 @@ class Main extends React.Component {
   componentWillMount() {
     // GET
     superagent.get('https://pass-backend.herokuapp.com/api/alerts')
-<<<<<<< HEAD
     .then(res => {
         let alerts = res.body;
-
 
       console.log('res', alerts);
 
@@ -54,14 +52,7 @@ class Main extends React.Component {
       this.setState({ filteredAlerts: res.body })
     })
   }
-
-      // let hideThese = localStorage.get('hiddenAlerts');
-      // [id1, id2, id3]
-      // remove [id1, id2, id3] from alerts & set that to filteredAlerts
-
-
-  //populating alerts, again, to show with newest one on the page
-=======
+  
     .then(res =>
 
       this.setState({
@@ -73,7 +64,6 @@ class Main extends React.Component {
   }
 
   //populating alerts, GET again, to show with newest one on the page
->>>>>>> d63cebf63d3de0835038f9c7d2b88be2463e7f18
   handlePostComplete(data) {
     console.log('in main', data);
     superagent.get('https://pass-backend.herokuapp.com/api/alerts')
