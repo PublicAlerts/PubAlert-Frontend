@@ -12,24 +12,34 @@ class AlertsOut extends React.Component {
       <h1>Alerts</h1>
       <ul>
 
-      {this.props.alerts.map(alert => {
 
-        return (
+              {
+                this.props.alerts.map(alert =>
+                <li key={alert._id}> Event: {alert.eventName} <br/>
+                Type: {alert.eventType} <br/>
+                Info: {alert.eventInfo}. <br/>
+                Location: {alert.eventLocation}. <br/>
+                Alert Votes: {alert.alertVotes} <br/>
+                Reported by " {alert.userid} " {moment(alert.entryDate).fromNow()}.
+                <br/>
 
-          <li key={alert._id}> Event: {alert.eventName} <br/> Type: {alert.eventType} <br/>Info: {alert.eventInfo}. <br/> Location: {alert.eventLocation}. <br/>Reported by " {alert.userid} " {moment(alert.entryDate).fromNow()}.
+                Verify this Alert:
+                <button id='voteTrue' onClick={() => this.props.handleVote(alert, 1)}> TRUE</button>
+                <button id='voteFalse' onClick={() => this.props.handleVote(alert, -1)}> FALSE</button>
+                <br/>
 
-          <a
-          id='deleteAlert'
-          className={this.deleteButton}
-          href="#"
-          onClick={() => this.props.handleHide(alert)}
-          > remove <p/></a>
-          </li>
-        )
+                <a
+                id='deleteAlert'
+                className={this.deleteButton}
+                href="#"
+                onClick={() => this.props.handleHide(alert)}
+                > remove <p/></a>
+                <p/>
+                </li>
 
-      })}
+              )
+            }
       </ul>
-
       </div>
     )
   }
