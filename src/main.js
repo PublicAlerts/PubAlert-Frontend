@@ -89,8 +89,6 @@ class Main extends React.Component {
       this.refreshDisplay();
     }
 
-
-    /////////
     handleHide(alert){
       console.log('this is the id for the one we want to remove', alert._id);
       let filteredAlerts = JSON.parse(localStorage.getItem('filteredAlerts')) || []
@@ -118,6 +116,5 @@ class Main extends React.Component {
       )
     }
   }
-
 
 ReactDom.render(<Main/>, document.getElementById('root'));
