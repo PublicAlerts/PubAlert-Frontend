@@ -14,37 +14,47 @@ class Main extends React.Component {
     }
     //updates state with another GET req to show new alerts with the rest
     this.handlePostComplete = this.handlePostComplete.bind(this);
+    this.handleVote = this.handleVote.bind(this);
+    this.refreshDisplay = this.refreshDisplay.bind(this);
   }
 
-  componentDidMount() {
-    // GET
+  refreshDisplay(){
     superagent.get('https://pass-backend.herokuapp.com/api/alerts')
     .then(res =>
       this.setState({
         alerts: res.body
       }))
-    .catch(function(err){
-      console.log(err);
+      .catch(function(err){
+        console.log(err);
+      })
+    }
+
+  componentDidMount() {
+    this.refreshDisplay();
+  }
+
+
+  handleVote(alert, vote){
+    console.log(alert, vote);
+    alert.alertVotes += vote;
+    superagent.patch('https://pass-backend.herokuapp.com/api/alerts/' + alert._id)
+    .send(alert)
+    .then(res => {
+      this.refreshDisplay();
     })
+    .catch()
   }
 
   //populating alerts, GET again, to show with newest one on the page
   handlePostComplete(data) {
     console.log('in main', data);
-    superagent.get('https://pass-backend.herokuapp.com/api/alerts')
-    .then(res =>
-      this.setState({
-      alerts: res.body
-      }))
-    .catch(function(err){
-      console.log(err);
-    })
+    this.refreshDisplay();
   }
     render() {
         return (
           <div>
             <AlertsIn onPostComplete={this.handlePostComplete}/>
-            <AlertsOut alerts={this.state.alerts}/>
+            <AlertsOut alerts={this.state.alerts} handleVote={this.handleVote}/>
           </div>
         )
     }

@@ -72,7 +72,11 @@ class AlertsIn extends React.Component {
     console.log(this.state.handleEnterEventType);
     console.log(this.state.eventName);
     this.setState({
-      name: ''
+      name: '',
+      eventName: '',
+      eventInfo: '',
+      eventLocation: 'Downtown Seattle',
+      eventType: 'Other'
     })
   }
 
@@ -127,7 +131,6 @@ class AlertsIn extends React.Component {
               Event Details:
               <input type='text' info='info' placeholder= ' event description' required  value={this.state.eventInfo} onChange={this.handleEnterEventInfo}/>
             </div>
-
 
           <input type="submit" value="Submit" />
         </form>
