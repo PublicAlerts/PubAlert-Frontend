@@ -6,12 +6,15 @@ class AlertsOut extends React.Component {
     super(props);
   }
 
-    render() {
-        return (
-          <div>
-            <h1>Alerts</h1>
-            <ul>
-              {this.props.alerts.map(alert =>
+  render() {
+    return (
+      <div>
+      <h1>Alerts</h1>
+      <ul>
+
+
+              {
+                this.props.alerts.map(alert =>
                 <li key={alert._id}> Event: {alert.eventName} <br/>
                 Type: {alert.eventType} <br/>
                 Info: {alert.eventInfo}. <br/>
@@ -23,14 +26,25 @@ class AlertsOut extends React.Component {
                 Verify this Alert:
                 <button id='voteTrue' onClick={() => this.props.handleVote(alert, 1)}> TRUE</button>
                 <button id='voteFalse' onClick={() => this.props.handleVote(alert, -1)}> FALSE</button>
+                <br/>
 
+                <a
+                id='deleteAlert'
+                className={this.deleteButton}
+                href="#"
+                onClick={() => this.props.handleHide(alert)}
+                > remove <p/></a>
                 <p/>
                 </li>
-              )}
-            </ul>
-          </div>
-        )
-    }
+
+              )
+            }
+      </ul>
+      </div>
+    )
+  }
 }
+
+
 
 export default AlertsOut;
