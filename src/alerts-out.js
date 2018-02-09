@@ -21,14 +21,13 @@ class AlertsOut extends React.Component {
                 <br/>
 
                 Verify this Alert:
-                <button id='voteTrue' onClick={() => this.props.handleVote(alert,1)}>Vote TRUE</button>
-                <button id='voteFalse' onClick={() => this.props.handleVote(alert, -1)}>Vote FALSE</button>
+                <button id='voteTrue' onClick={() => this.props.handleVote(alert, 1)}> TRUE</button>
+                <button id='voteFalse' onClick={() => this.props.handleVote(alert, -1)}> FALSE</button>
 
                 <p/>
                 </li>
               )}
             </ul>
-
           </div>
         )
     }
