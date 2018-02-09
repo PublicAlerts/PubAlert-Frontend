@@ -74,7 +74,7 @@ class Main extends React.Component {
           console.log(alert, vote);
           alert.alertVotes += vote;
           superagent.patch('https://pass-backend.herokuapp.com/api/alerts/' + alert._id)
-          .send(filteredAlerts)
+          .send(alert)
           .then(res => {
             this.refreshDisplay();
           })
