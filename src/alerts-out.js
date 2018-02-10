@@ -26,9 +26,9 @@ class AlertsOut extends React.Component {
             Sent by "{alert.userid}" {moment(alert.entryDate).fromNow()}.<br/>
 
             Alert Actions:
-            <button id='voteTrue' onClick={() => this.props.handleVote(alert, 1)}>  </button>
-            <button id='voteFalse' onClick={() => this.props.handleVote(alert, -1)}> </button>
-            <button id='deleteAlert' className={this.deleteButton} onClick={() => this.props.handleHide(alert)}> </button>
+            <button id='voteTrue' title='TRUE' onClick={() => this.props.handleVote(alert, 1)}>  </button>
+            <button id='voteFalse' title='FALSE' onClick={() => this.props.handleVote(alert, -1)}> </button>
+            <button id='deleteAlert' title='HIDE ALERT' className={this.deleteButton} onClick={() => this.props.handleHide(alert)}> </button>
             <p/>
             </li>
 
