@@ -113,3 +113,22 @@ vertical-align: middle;
   font-family: Helvetica, serif;
   line-height:1;
 }
+
+#sortByTime{
+  background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_sort-numeric-asc_1608402.png' );
+  background-size: 2.5em 2.5em;
+  background-color: inherit;
+  height: 2.5em;
+  width: 2.5em;
+  border: none;
+  margin: 3px;
+}
+#sortByVotes{
+  background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_sort-amount-asc_1608405.png' );
+  background-size: 2.5em 2.5em;
+  background-color: inherit;
+  height: 2.5em;
+  width: 2.5em;
+  border: none;
+  margin: 2px;
+}
