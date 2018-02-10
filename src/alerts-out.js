@@ -12,12 +12,12 @@ class AlertsOut extends React.Component {
 
     return (
       <div>
-      <h1>Alerts</h1>
+        <h1>Alerts</h1>
       <ul>
 
       {this.props.alerts.map(alert =>
 
-            <li key={alert._id}>
+            <li id='alertBox' key={alert._id}>
             Event: {alert.eventName} <br/>
             Type: {alert.eventType} <br/>
             Info: {alert.eventInfo}. <br/>
