@@ -40,13 +40,20 @@ class Main extends React.Component {
 
   refreshDisplay(){
     superagent.get('https://pass-backend.herokuapp.com/api/alerts')
-    .then(res =>
-      this.setState({
-        alerts: res.body
-      }))
-      .catch(function(err){
-        console.log(err);
+      .then(res => {
+        let alerts = res.body;
+
+        let filteredAlerts = JSON.parse(localStorage.getItem('filteredAlerts'))
+        if(filteredAlerts){
+          alerts = alerts.filter(alert => {
+            return !filteredAlerts.includes(alert._id)
+          })
+        }
+        this.setState({ alerts: alerts })
       })
+        .catch(function(err){
+          console.log(err);
+        })
     }
 
     handleVote(alert, vote){
@@ -82,9 +89,9 @@ class Main extends React.Component {
         this.setState({alerts})
       }
 
-
       render() {
         console.log('thistate', this.state);
+
         return (
           <div>
           <AlertsIn onPostComplete={this.handlePostComplete}/>
