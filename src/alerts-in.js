@@ -23,7 +23,6 @@ class AlertsIn extends React.Component {
     this.setState({
       name: e.target.value
     })
-    // this.state.name = e.target.value
   }
 
   handleLocationChange(e){
@@ -51,7 +50,6 @@ class AlertsIn extends React.Component {
   }
 
   handleSubmit(e){
-    //using superagent to POST data to server
     e.preventDefault();
     superagent.post('https://pass-backend.herokuapp.com/api/alerts')
     .send({
