@@ -29,7 +29,7 @@ class AlertsOut extends React.Component {
 
     return (
       <div>
-        <h1>Alerts</h1>
+        <h1>Local Alerts</h1>
 
         Sort Alerts<br/>
         <button id='sortByTime' title='Sort by time' onClick={() => this.setState({sortByTime:true})}> </button>
