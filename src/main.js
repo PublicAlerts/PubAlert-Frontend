@@ -40,25 +40,6 @@ class Main extends React.Component {
     })
   }
 
-  componentWillMount() {
-    superagent.get('https://pass-backend.herokuapp.com/api/alerts')
-    .then(res => {
-      let alerts = res.body;
-      console.log('res', alerts);
-
-      let filteredAlerts = JSON.parse(localStorage.getItem('filteredAlerts'))
-      //console.log('this is what we get back', filteredAlerts)
-      if(filteredAlerts){
-        console.log('filtered alerts', filteredAlerts);
-        alerts = alerts.filter(alert => {
-          return !filteredAlerts.includes(alert._id)
-        })
-      }
-      console.log('new alerts', alerts);
-      this.setState({ alerts: alerts })
-    })
-  }
-
   refreshDisplay(){
     superagent.get('https://pass-backend.herokuapp.com/api/alerts')
       .then(res => {
@@ -114,16 +95,6 @@ class Main extends React.Component {
 
 
 
-sortAlerts(unsortedAlerts) {
-  return unsortedAlerts.sort((t, f) => {
-    if (t.alertVotes < f.alertVotes) {
-      return 1;
-    }
-    if (t.alertVotes > f.alertVotes) {
-      return -1;
-    }
-  });
-}
 
 
 
@@ -133,7 +104,6 @@ handleLogin() {
 
 
 render() {
-  const sortedAlerts = this.sortAlerts(this.state.alerts)
   console.log('thistate', this.state);
   return (
     <div>
@@ -147,7 +117,7 @@ render() {
             alerts={this.state.alerts}
             handleVote={this.handleVote}
             handleHide={this.handleHide}
-            handleSort={this.handleSort}
+            // handleSort={this.handleSort}
           />
         </div>
       ) : (
@@ -160,4 +130,6 @@ render() {
 }
 
 
-    ReactDom.render(<Main/>, document.getElementById('root'));
+
+
+  ReactDom.render(<Main/>, document.getElementById('root'));
