@@ -21,8 +21,8 @@ class AlertsOut extends React.Component {
         Alert Votes: {alert.alertVotes} <br/>
 
         Verify this Alert:
-        <button id='voteTrue' onClick={() => this.props.handleVote(alert, 1)}> TRUE</button>
-        <button id='voteFalse' onClick={() => this.props.handleVote(alert, -1)}> FALSE</button>
+        <button id='voteTrue' onClick={() => this.props.handleVote(alert, 1)}>  </button>
+        <button id='voteFalse' onClick={() => this.props.handleVote(alert, -1)}> </button>
         <br/>
         Reported by "{alert.userid}" {moment(alert.entryDate).fromNow()}.<br/>
         <button id='deleteAlert' className={this.deleteButton} onClick={() => this.props.handleHide(alert)}>
@@ -31,6 +31,7 @@ class AlertsOut extends React.Component {
         <p/>
         </li>
       )}
+
 
       </ul>
       </div>
