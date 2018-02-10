@@ -4,19 +4,40 @@ import superagent from 'superagent';
 import './style/main.scss';
 import AlertsIn from './alerts-in.js';
 import AlertsOut from './alerts-out.js';
-
+import Login from './login.js';
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      alerts: []
+      alerts: [],
+      isLoggedIn: false
     }
     //updates state with another GET req to show new alerts with the rest
     this.handleHide = this.handleHide.bind(this)
     this.handlePostComplete = this.handlePostComplete.bind(this);
     this.handleVote = this.handleVote.bind(this);
     this.refreshDisplay = this.refreshDisplay.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  componentWillMount() {
+    superagent.get('https://pass-backend.herokuapp.com/api/alerts')
+    .then(res => {
+      let alerts = res.body;
+      console.log('res', alerts);
+
+      let filteredAlerts = JSON.parse(localStorage.getItem('filteredAlerts'))
+      //console.log('this is what we get back', filteredAlerts)
+      if(filteredAlerts){
+        console.log('filtered alerts', filteredAlerts);
+        alerts = alerts.filter(alert => {
+          return !filteredAlerts.includes(alert._id)
+        })
+      }
+      console.log('new alerts', alerts);
+      this.setState({ alerts: alerts })
+    })
   }
 
   componentWillMount() {
@@ -56,6 +77,7 @@ class Main extends React.Component {
         })
     }
 
+
     handleVote(alert, vote){
       console.log(alert, vote);
       alert.alertVotes += vote;
@@ -68,6 +90,7 @@ class Main extends React.Component {
         console.log(err);
       })
     }
+
 
     handlePostComplete(data) {
       console.log('in main', data);
@@ -89,15 +112,52 @@ class Main extends React.Component {
         this.setState({alerts})
       }
 
-      render() {
-        console.log('thistate', this.state);
-        return (
-          <div>
-          <AlertsIn onPostComplete={this.handlePostComplete}/>
-          <AlertsOut alerts={this.state.alerts} handleVote={this.handleVote} handleHide={this.handleHide}/>
-          </div>
-        )
-      }
+
+
+sortAlerts(unsortedAlerts) {
+  return unsortedAlerts.sort((t, f) => {
+    if (t.alertVotes < f.alertVotes) {
+      return 1;
     }
+    if (t.alertVotes > f.alertVotes) {
+      return -1;
+    }
+  });
+}
+
+
+
+handleLogin() {
+	this.setState({ isLoggedIn: true })
+}
+
+
+render() {
+  const sortedAlerts = this.sortAlerts(this.state.alerts)
+  console.log('thistate', this.state);
+  return (
+    <div>
+      {this.state.isLoggedIn ? (
+        <div>
+          <AlertsIn
+            onPostComplete={this.handlePostComplete}
+          />
+          <AlertsOut
+            // alerts={sortedAlerts}
+            alerts={this.state.alerts}
+            handleVote={this.handleVote}
+            handleHide={this.handleHide}
+            handleSort={this.handleSort}
+          />
+        </div>
+      ) : (
+        <Login handleLogin={this.handleLogin}/>
+      )
+    }
+    </div>
+      )
+  }
+}
+
 
     ReactDom.render(<Main/>, document.getElementById('root'));
