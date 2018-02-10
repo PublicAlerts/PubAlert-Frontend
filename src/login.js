@@ -16,6 +16,20 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.handleEnter = (e) => {
+      // console.log(e.key)
+      if (e.key === 'Enter') {
+        this.handleSubmit()
+      }
+    }
+    window.addEventListener('keypress', this.handleEnter)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keypress', this.handleEnter)
+  }
+
   handleSubmit() {
     if (this.state.username = 'username' && this.state.password === 'password') {
       this.props.handleLogin()
