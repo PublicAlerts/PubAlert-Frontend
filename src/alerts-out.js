@@ -31,9 +31,7 @@ class AlertsOut extends React.Component {
             <button id='deleteAlert' title='HIDE ALERT' className={this.deleteButton} onClick={() => this.props.handleHide(alert)}> </button>
             <p/>
             </li>
-
       )}
-
 
       </ul>
       </div>
