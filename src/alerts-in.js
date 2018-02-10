@@ -9,7 +9,8 @@ class AlertsIn extends React.Component {
       eventLocation: 'Downtown Seattle',
       eventInfo: '',
       eventName: '',
-      eventType: 'Other'
+      eventType: 'Other',
+      alertsInIsVisible: false
     }
     this.handleNameInput = this.handleNameInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,6 +18,7 @@ class AlertsIn extends React.Component {
     this.handleEnterEventName = this.handleEnterEventName.bind(this);
     this.handleEnterEventInfo = this.handleEnterEventInfo.bind(this);
     this.handleEnterEventType = this.handleEnterEventType.bind(this);
+    this.computeClass = this.computeClass.bind(this);
   }
 
   handleNameInput(e){
@@ -74,13 +76,23 @@ class AlertsIn extends React.Component {
       eventName: '',
       eventInfo: '',
       eventLocation: 'Downtown Seattle',
-      eventType: 'Other'
+      eventType: 'Other',
     })
   }
-
+  computeClass() {
+    if (this.state.alertsInIsVisible) {
+      return 'visible';
+    } else {
+      return 'invisible';
+    }
+  }
   render() {
     return (
       <div>
+
+      <button id='enterAlerts' title='NEW ALERT' onClick={() => {(this.state.alertsInIsVisible:true)}} >ENTER NEW ALERT </button>
+
+      <div id='alertsIn' className={this.computeClass()}>
         <h1>Alerts In</h1>
         <form onSubmit={this.handleSubmit}>
 
@@ -137,6 +149,7 @@ class AlertsIn extends React.Component {
 
           <input type="submit" value="Submit" />
         </form>
+      </div>
       </div>
     )
   }

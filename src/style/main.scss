@@ -40,5 +40,23 @@ ul {
 #alertBox {
     background-color: red;
     border: 1px ;
+}
+
+#alertsIn {
+  background-color: green;
+  border: 1px ;
+  position:fixed;
+  width: 100%;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+#enterAlerts {
 
 }
