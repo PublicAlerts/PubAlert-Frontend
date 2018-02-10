@@ -43,14 +43,18 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" name="username" value={this.state.username}
-        placeholder="username"
-        onChange={this.handleChange}/>
-        <input type="password" name="password"
-        value={this.state.password}
-        placeholder="password"
-        onChange={this.handleChange}/>
-        <button onClick={this.handleSubmit}>Login</button>
+        <div id='loginScreen'>
+        <br/><div id='pubAlertsTitle'>Public Alerts<br/> Sharing System</div><br/>
+          <input type="text" name="username" value={this.state.username}
+          placeholder="username"
+          onChange={this.handleChange}/>
+          <input type="password" name="password"
+          value={this.state.password}
+          placeholder="password"
+          onChange={this.handleChange}/><br/>
+          <button title='CLICK TO LOGIN' id='loginButton' onClick={this.handleSubmit}>  </button>
+          <br/> LOGIN <p/>
+        </div>
       </div>
     )
   }

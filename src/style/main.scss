@@ -1,7 +1,7 @@
 body {
-  background: yellow;
+  background: white;
   color: #000;
-  font-size:17px;
+  font-size:1.1em;
 }
 
 ul {
@@ -40,5 +40,52 @@ ul {
 #alertBox {
     background-color: red;
     border: 1px ;
+}
 
+#alertsIn {
+  background-color: green;
+  border: 1px ;
+  position:fixed;
+  width: 100%;
+}
+
+#loginScreen {
+  box-shadow: 0 0 8px 8px white inset;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 1.5em;
+  width: 85%;
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('https://s3-us-west-2.amazonaws.com/testingbucket010101/Screen+Shot+2018-02-10+at+11.39.35+AM.png');
+}
+#loginButton{
+  background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_user_login_61841.png' );
+  background-size: 5em 5em;
+  background-color: transparent;
+  height: 5em;
+  width: 5em;
+  border: none;
+  margin: 1px;
+}
+
+#pubAlertsTitle{
+  text-shadow:-2px 2px 9px rgba(223,237,237,0.7);
+  margin-top: 1em;
+  font-weight:bold;
+  font-style:italic;
+  color:#FCFCFC;
+  word-spacing:1pt;
+  font-size:1em;
+  text-align:center;
+  font-family: Helvetica, serif;
+  line-height:1;
 }
