@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import superagent from 'superagent';
 
+const renderIf = (test, componentTrue, compoentFalse=null) => test ? componentTrue : compoentFalse;
+
 class AlertsIn extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ class AlertsIn extends React.Component {
       eventInfo: '',
       eventName: '',
       eventType: 'Other',
-      alertsInIsVisible: false
+      showForm: false
     }
     this.handleNameInput = this.handleNameInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +20,7 @@ class AlertsIn extends React.Component {
     this.handleEnterEventName = this.handleEnterEventName.bind(this);
     this.handleEnterEventInfo = this.handleEnterEventInfo.bind(this);
     this.handleEnterEventType = this.handleEnterEventType.bind(this);
-    this.computeClass = this.computeClass.bind(this);
+    this.showHide = this.showHide.bind(this);
   }
 
   handleNameInput(e){
@@ -77,80 +79,87 @@ class AlertsIn extends React.Component {
       eventInfo: '',
       eventLocation: 'Downtown Seattle',
       eventType: 'Other',
+      showForm: false
     })
   }
-  computeClass() {
-    if (this.state.alertsInIsVisible) {
-      return 'visible';
-    } else {
-      return 'invisible';
-    }
+
+  showHide() {
+    let showForm = ! this.state.showForm;
+    this.setState({showForm});
   }
   render() {
     return (
       <div>
 
-      <button id='enterAlerts' title='NEW ALERT' onClick={() => {(this.state.alertsInIsVisible:true)}} >ENTER NEW ALERT </button>
+      {
+        renderIf(
 
-      <div id='alertsIn' className={this.computeClass()}>
-        <h1>Alerts In</h1>
-        <form onSubmit={this.handleSubmit}>
+          this.state.showForm,
 
-            Your Name:
-            <input type="text" name="name" placeholder = ' your name' required value={this.state.name} onChange={this.handleNameInput}/>
+            <div id='alertsIn'>
+            <h1>Alerts In</h1>
+            <form onSubmit={this.handleSubmit}>
 
-            <div>
-              City:
-              <select value={this.state.eventLocation} onChange={this.handleLocationChange}>
-                <option>Edmonds</option>
-                <option>Everett</option>
-                <option>Lynnwood</option>
-                <option>Redmond</option>
-                <option>Issaquah</option>
-                <option>Northgate</option>
-                <option>U-District</option>
-                <option>Downtown Seattle</option>
-                <option>West Seattle</option>
-                <option>SeaTac</option>
-                <option>Tukwila</option>
-                <option>Renton</option>
-                <option>Kent</option>
-                <option>Federal Way</option>
-                <option>Tacoma</option>
-                <option>Olympia</option>
-              </select>
-            </div>
+                Your Name:
+                <input type="text" name="name" placeholder = ' your name' required value={this.state.name} onChange={this.handleNameInput}/>
 
-            <div>
-            Event Name:
-            <input type='text' name='name' placeholder = ' name of event' required  value={this.state.eventName} onChange={this.handleEnterEventName}/>
-            </div>
+                <div>
+                  City:
+                  <select value={this.state.eventLocation} onChange={this.handleLocationChange}>
+                    <option>Edmonds</option>
+                    <option>Everett</option>
+                    <option>Lynnwood</option>
+                    <option>Redmond</option>
+                    <option>Issaquah</option>
+                    <option>Northgate</option>
+                    <option>U-District</option>
+                    <option>Downtown Seattle</option>
+                    <option>West Seattle</option>
+                    <option>SeaTac</option>
+                    <option>Tukwila</option>
+                    <option>Renton</option>
+                    <option>Kent</option>
+                    <option>Federal Way</option>
+                    <option>Tacoma</option>
+                    <option>Olympia</option>
+                  </select>
+                </div>
 
-            <div>
-              Event Type:
-              <select value={this.state.eventType} onChange={this.handleEnterEventType}>
-                <option>AMBER ALERT</option>
-                <option>DANGER</option>
-                <option>Breaking News</option>
-                <option>Classes</option>
-                <option>Concert</option>
-                <option>Food</option>
-                <option>Performance</option>
-                <option>Social</option>
-                <option>Traffic</option>
-                <option>Other</option>
-              </select>
-            </div>
+                <div>
+                Event Name:
+                <input type='text' name='name' placeholder = ' name of event' required  value={this.state.eventName} onChange={this.handleEnterEventName}/>
+                </div>
 
-            <div>
-              Event Details:
-              <input type='text' info='info' placeholder= ' event description' required  value={this.state.eventInfo} onChange={this.handleEnterEventInfo}/>
-            </div>
+                <div>
+                  Event Type:
+                  <select value={this.state.eventType} onChange={this.handleEnterEventType}>
+                    <option>AMBER ALERT</option>
+                    <option>DANGER</option>
+                    <option>Breaking News</option>
+                    <option>Classes</option>
+                    <option>Concert</option>
+                    <option>Food</option>
+                    <option>Performance</option>
+                    <option>Social</option>
+                    <option>Traffic</option>
+                    <option>Other</option>
+                  </select>
+                </div>
 
-          <input type="submit" value="Submit" />
-        </form>
+                <div>
+                  Event Details:
+                  <input type='text' info='info' placeholder= ' event description' required  value={this.state.eventInfo} onChange={this.handleEnterEventInfo}/>
+                </div>
+
+              <input type="submit" value="Submit" />
+            </form>
+          </div>,
+
+          <button id='enterAlerts' title='NEW ALERT' onClick = {this.showHide}> ENTER NEW ALERT </button>
+
+        )}
       </div>
-      </div>
+
     )
   }
 }
