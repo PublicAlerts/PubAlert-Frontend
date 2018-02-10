@@ -121,9 +121,10 @@ class AlertsIn extends React.Component {
                 <option>DANGER</option>
                 <option>Breaking News</option>
                 <option>Classes</option>
+                <option>Concert</option>
                 <option>Food</option>
                 <option>Performance</option>
-                <option>Social Gathering</option>
+                <option>Social</option>
                 <option>Traffic</option>
                 <option>Other</option>
               </select>
