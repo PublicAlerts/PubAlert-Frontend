@@ -40,16 +40,25 @@ ul {
 
 #alertBox {
     background-color: #9ec0f7;
-    border: 1px ;
     opacity: 0.8;
     filter: alpha(opacity=80);
-
     box-shadow: 0 0 8px 8px white inset;
     border: none;
-    color: white;
+
     padding: 10px 20px;
     text-align: center;
     font-size: 1.5em;
+    vertical-align: middle;
+
+    text-shadow:-1px 1px 12px rgba(252,252,250,0.7);
+    font-weight:normal;color:#000000;
+    letter-spacing:1pt;
+    word-spacing:2pt;
+    font-size:1em;
+    line-height:1;
+width: 90%;
+vertical-align: middle;
+
 }
 #alertBox:hover {
     opacity: 1.0;
@@ -75,11 +84,11 @@ ul {
   line-height: 1.5;
   display: inline-block;
   vertical-align: middle;
+  transform: translate(-50%, -50%);
   margin: 0;
   position: absolute;
   top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
   background-image: url('https://s3-us-west-2.amazonaws.com/testingbucket010101/Screen+Shot+2018-02-10+at+11.39.35+AM.png');
 }
 #loginButton{
