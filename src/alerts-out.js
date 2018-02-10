@@ -24,7 +24,7 @@ class AlertsOut extends React.Component {
         <button id='voteTrue' onClick={() => this.props.handleVote(alert, 1)}> TRUE</button>
         <button id='voteFalse' onClick={() => this.props.handleVote(alert, -1)}> FALSE</button>
         <br/>
-        Reported by " {alert.userid} " {moment(alert.entryDate).fromNow()}.<br/>
+        Reported by "{alert.userid}" {moment(alert.entryDate).fromNow()}.<br/>
         <button id='deleteAlert' className={this.deleteButton} onClick={() => this.props.handleHide(alert)}>
         Hide Alert
         </button><br/>
