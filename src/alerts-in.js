@@ -23,7 +23,6 @@ class AlertsIn extends React.Component {
     this.setState({
       name: e.target.value
     })
-    // this.state.name = e.target.value
   }
 
   handleLocationChange(e){
@@ -51,7 +50,6 @@ class AlertsIn extends React.Component {
   }
 
   handleSubmit(e){
-    //using superagent to POST data to server
     e.preventDefault();
     superagent.post('https://pass-backend.herokuapp.com/api/alerts')
     .send({
@@ -91,19 +89,23 @@ class AlertsIn extends React.Component {
 
             <div>
               City:
-              <select  value={this.state.eventLocation} onChange={this.handleLocationChange}>
-                <option>West Seattle</option>
-                <option>Renton</option>
-                <option>Tukwila</option>
-                <option>Federal Way</option>
-                <option>Downtown Seattle</option>
-                <option>Tacoma</option>
-                <option>Kent</option>
-                <option>U-District</option>
-                <option>SeaTac</option>
+              <select value={this.state.eventLocation} onChange={this.handleLocationChange}>
                 <option>Edmonds</option>
                 <option>Everett</option>
+                <option>Lynnwood</option>
+                <option>Redmond</option>
                 <option>Issaquah</option>
+                <option>Northgate</option>
+                <option>U-District</option>
+                <option>Downtown Seattle</option>
+                <option>West Seattle</option>
+                <option>SeaTac</option>
+                <option>Tukwila</option>
+                <option>Renton</option>
+                <option>Kent</option>
+                <option>Federal Way</option>
+                <option>Tacoma</option>
+                <option>Olympia</option>
               </select>
             </div>
 
@@ -117,12 +119,13 @@ class AlertsIn extends React.Component {
               <select value={this.state.eventType} onChange={this.handleEnterEventType}>
                 <option>AMBER ALERT</option>
                 <option>DANGER</option>
-                <option>Traffic</option>
-                <option>Social Gathering</option>
+                <option>Breaking News</option>
+                <option>Classes</option>
+                <option>Concert</option>
                 <option>Food</option>
                 <option>Performance</option>
-                <option>Classes</option>
-                <option>Breaking News</option>
+                <option>Social</option>
+                <option>Traffic</option>
                 <option>Other</option>
               </select>
             </div>

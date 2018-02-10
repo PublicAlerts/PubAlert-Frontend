@@ -7,3 +7,38 @@ body {
 ul {
   list-style-type: none;
 }
+
+#voteFalse {
+    background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Dislike_down_thumb_thumbs_vote_1886913.png' );
+    background-size: 2.5em 2.5em;
+    background-color: inherit;
+    height: 2.5em;
+    width: 2.5em;
+    border: none;
+    margin: 2px;
+}
+#voteTrue {
+    background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Like_thumbs_up_hands_gesture_finger_vote_1887027.png' );
+    background-size: 2.5em 2.5em;
+    background-color: inherit;
+    height: 2.5em;
+    width: 2.5em;
+    border: none;
+    margin: 2px;
+}
+
+#deleteAlert{
+  background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Eye_see_unview_hide_optical_blind_invisible_1886933.png' );
+  background-size: 2.5em 2.5em;
+  background-color: inherit;
+  height: 2.5em;
+  width: 2.5em;
+  border: none;
+  margin: 2px;
+}
+
+#alertBox {
+    background-color: red;
+    border: 1px ;
+
+}

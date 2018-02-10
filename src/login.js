@@ -17,7 +17,7 @@ class Login extends React.Component {
   }
 
   handleSubmit() {
-    if (this.state.username = 'brian' && this.state.password === '1234') {
+    if (this.state.username = 'username' && this.state.password === 'password') {
       this.props.handleLogin()
     }
   }
