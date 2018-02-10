@@ -91,7 +91,6 @@ class Main extends React.Component {
 
       render() {
         console.log('thistate', this.state);
-
         return (
           <div>
           <AlertsIn onPostComplete={this.handlePostComplete}/>
