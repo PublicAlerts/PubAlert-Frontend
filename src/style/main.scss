@@ -73,10 +73,24 @@ ul {
   border: 1px ;
   position:fixed;
   width: 100%;
-  background-color: silver;
-  position: absolute;
+  background-color: #c5f9e8;
   z-index: 500 !important;
-  margin: auto;
+
+  box-shadow: 0 0 8px 8px white inset;
+  border: none;
+  color: black;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 0.9em;
+  width: 85%;
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
 }
 
 #loginScreen {
