@@ -7,3 +7,20 @@ body {
 ul {
   list-style-type: none;
 }
+
+#voteFalse {
+    background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Thumbs_down_49268.png' );
+    background-size: 3em 3em;
+    background-color: inherit;
+    height: 3em;
+    width: 3em;
+    border: none;
+}
+#voteTrue {
+    background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Thumbs_Up_49269.png' );
+    background-size: 3em 3em;
+    background-color: inherit;
+    height: 3em;
+    width: 3em;
+    border: none;
+}
