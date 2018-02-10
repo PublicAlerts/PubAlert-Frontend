@@ -108,6 +108,26 @@ class Main extends React.Component {
       }
 
 
+// var alerts = [];
+//
+// var votes = alerts.map(function(el, i) {
+//   return {index: i, value: el()};
+// });
+//
+// votes.sort(function(t, f) {
+//   if (t.value > f.value) {
+//     return 1;
+//   }
+//   if (t.value < f.value) {
+//     return -1;
+//   }
+// });
+
+
+var results = votes.map(function(el) {
+  return list [el.index];
+});
+
 
     render() {
       console.log('thistate', this.state);
