@@ -9,18 +9,20 @@ ul {
 }
 
 #voteFalse {
-    background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Thumbs_down_49268.png' );
-    background-size: 3em 3em;
+    background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Dislike_down_thumb_thumbs_vote_1886913.png' );
+    background-size: 2em 2em;
     background-color: inherit;
-    height: 3em;
-    width: 3em;
+    height: 2em;
+    width: 2em;
     border: none;
+    margin: 2px;
 }
 #voteTrue {
-    background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Thumbs_Up_49269.png' );
-    background-size: 3em 3em;
+    background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Like_thumbs_up_hands_gesture_finger_vote_1887027.png' );
+    background-size: 2em 2em;
     background-color: inherit;
-    height: 3em;
-    width: 3em;
+    height: 2em;
+    width: 2em;
     border: none;
+    margin: 2px;
 }
