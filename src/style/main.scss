@@ -1,12 +1,27 @@
 body {
   background: yellow;
-  color: #000;
-  font-size:17px;
+  color: #black;
+  font-family: impact;
+  font-size: 17px;
+  margin: auto;
+   width: 50%;
+   border: 3px solid yellow;
+   padding: 10px;
+   text-align: center;
 }
+
 
 ul {
   list-style-type: none;
 }
+
+
+h1 {
+
+}
+
+
+
 
 #voteFalse {
     background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Dislike_down_thumb_thumbs_vote_1886913.png' );
@@ -17,6 +32,8 @@ ul {
     border: none;
     margin: 2px;
 }
+
+
 #voteTrue {
     background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Like_thumbs_up_hands_gesture_finger_vote_1887027.png' );
     background-size: 2.5em 2.5em;
@@ -26,6 +43,7 @@ ul {
     border: none;
     margin: 2px;
 }
+
 
 #deleteAlert{
   background-image: url( 'https://s3-us-west-2.amazonaws.com/testingbucket010101/if_Eye_see_unview_hide_optical_blind_invisible_1886933.png' );
@@ -37,8 +55,10 @@ ul {
   margin: 2px;
 }
 
+
 #alertBox {
-    background-color: red;
-    border: 1px ;
+    background-color: #FFFF66;
+    border: 2px;
+
 
 }
